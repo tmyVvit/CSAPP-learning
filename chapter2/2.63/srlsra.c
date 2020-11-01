@@ -24,7 +24,8 @@ int sra(int x, int k) {
     int xsrl = (unsigned) x >> k;
 
     int flag = 1 << (INTLEN - 1);
-    int mask = (-1) << (INTLEN - k);
+    //int mask = ~0 & ((1 << k) - 1);
+    int mask = (-1) << (INTLEN - k); 
     // if x < 0 then need mask, else no need mask
     mask &= !(x&flag) - 1;
     return xsrl | mask;
